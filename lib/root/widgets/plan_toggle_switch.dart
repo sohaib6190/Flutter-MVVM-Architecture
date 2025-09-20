@@ -38,7 +38,7 @@ class _PlanToggleSwitchState extends State<PlanToggleSwitch> {
         height: 28,
         width: 140,
         decoration: BoxDecoration(
-          color: AerialColorTheme().lightGrey70,
+          color: AppColorTheme().lightGrey70,
           borderRadius: BorderRadius.circular(62),
         ),
         child: Stack(
@@ -52,7 +52,7 @@ class _PlanToggleSwitchState extends State<PlanToggleSwitch> {
                 width: 70,
                 height: 28,
                 decoration: BoxDecoration(
-                  color: AerialColorTheme().primary,
+                  color: AppColorTheme().primary,
                   borderRadius: BorderRadius.circular(62),
                 ),
               ),
@@ -66,8 +66,8 @@ class _PlanToggleSwitchState extends State<PlanToggleSwitch> {
                       style: context.bodyText.copyWith(
                         fontSize: 14,
                         color: isYearly
-                            ? AerialColorTheme().black
-                            : AerialColorTheme().white,
+                            ? AppColorTheme().black
+                            : AppColorTheme().white,
                       ),
                     ),
                   ),
@@ -79,8 +79,8 @@ class _PlanToggleSwitchState extends State<PlanToggleSwitch> {
                       style: context.bodyText.copyWith(
                         fontSize: 14,
                         color: isYearly
-                            ? AerialColorTheme().white
-                            : AerialColorTheme().black,
+                            ? AppColorTheme().white
+                            : AppColorTheme().black,
                       ),
                     ),
                   ),

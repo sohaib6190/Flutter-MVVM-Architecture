@@ -298,7 +298,7 @@ class _CameraScreenState extends State<CameraScreen> {
   List<CameraDescription>? _cameras;
   CameraController? _cameraController;
 
-  double _currentHeading = 0.0;
+ 
   bool _isProcessing = false;
 
   @override
@@ -342,7 +342,7 @@ Future<void> _captureImage() async {
           img.decodeImage(await imageFile.readAsBytes());
 
       if (capturedImage != null) {
-        widget.onMediaCaptured(image, _currentHeading, false);
+        widget.onMediaCaptured(image, 0.0, false);
       } else {
         debugPrint('Failed to decode captured image.');
       }

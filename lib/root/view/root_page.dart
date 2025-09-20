@@ -1,10 +1,16 @@
 part of 'view.dart';
 
+GlobalKey jobsBottomNavKey = GlobalKey();
+GlobalKey socialBottomNavKey = GlobalKey();
+GlobalKey adsBottomNavKey = GlobalKey();
+GlobalKey moreBottomNavKey = GlobalKey();
+GlobalKey mapSearchbarKey = GlobalKey();
+GlobalKey mapsProjectFeatureKey = GlobalKey();
 
 class RootPage extends StatelessWidget {
   const RootPage({super.key});
 
-  @override
+ @override
   Widget build(BuildContext context) {
       return MultiBlocProvider(
       providers: [

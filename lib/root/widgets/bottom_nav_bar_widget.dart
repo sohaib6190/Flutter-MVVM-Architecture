@@ -23,11 +23,11 @@ class BottomNavBarWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: context.isDarkTheme
-            ? AerialColorTheme().black20
-            : AerialColorTheme().white,
+            ? AppColorTheme().black20
+            : AppColorTheme().white,
         border: Border(
           top: BorderSide(
-            color: AerialColorTheme().lightGrey.withValues(alpha: 0.3),
+            color: AppColorTheme().lightGrey.withValues(alpha: 0.3),
           ),
         ),
       ),
@@ -35,35 +35,35 @@ class BottomNavBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _BottomNavBarItem(
-            icon: AerialIcons().maps,
+            icon: AppIcons().maps,
             isSelected: 0 == currentIndex,
             label: translate(context, 'maps'),
             onTap: onTapMaps,
           ),
           _BottomNavBarItem(
             key: jobsBottomNavKey,
-            icon: AerialIcons().jobs,
+            icon: AppIcons().jobs,
             isSelected: 1 == currentIndex,
             label: translate(context, 'jobs'),
             onTap: onTapJobs,
           ),
           _BottomNavBarItem(
             key: socialBottomNavKey,
-            icon: AerialIcons().social,
+            icon: AppIcons().social,
             isSelected: 2 == currentIndex,
             label: translate(context, 'social'),
             onTap: onTapSocial,
           ),
           _BottomNavBarItem(
             key: adsBottomNavKey,
-            icon: AerialIcons().ads,
+            icon: AppIcons().ads,
             isSelected: 3 == currentIndex,
             label: translate(context, 'ads'),
             onTap: onTapAds,
           ),
           _BottomNavBarItem(
             key: moreBottomNavKey,
-            icon: AerialIcons().more,
+            icon: AppIcons().more,
             isSelected: 4 == currentIndex,
             label: translate(context, 'more'),
             onTap: onTapMore,
@@ -103,7 +103,7 @@ class _BottomNavBarItem extends StatelessWidget {
                 isSelected
                     ? Container(
                         decoration: BoxDecoration(
-                          gradient: AerialColorTheme().primaryGradient,
+                          gradient: AppColorTheme().primaryGradient,
                           borderRadius: BorderRadius.circular(24),
                         ),
                         child: Padding(
@@ -111,7 +111,7 @@ class _BottomNavBarItem extends StatelessWidget {
                               vertical: 4, horizontal: 20),
                           child: Icon(
                             icon,
-                            color: AerialColorTheme().white,
+                            color: AppColorTheme().white,
                             size: 24,
                           ),
                         ),
