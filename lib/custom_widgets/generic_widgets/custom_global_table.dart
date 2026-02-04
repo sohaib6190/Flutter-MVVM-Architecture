@@ -629,20 +629,7 @@ Widget _buildCheckBoxCell(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 12),
       color: Colors.white,
-      child: Center(
-        child: CustomCheckbox(
-          value: value,
-          isCenter: true,
-          uncheckedColor: Colors.transparent,
-          checkedColor: AppColorTheme().primaryGradient1,
-          isBorder: true,
-          onChanged: (bool? newValue) {
-            if (onChanged != null) {
-              onChanged(newValue!);
-            }
-          },
-        ),
-      ),
+   
     ),
   );
 }
