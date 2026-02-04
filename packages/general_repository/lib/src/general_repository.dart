@@ -16,6 +16,11 @@ class GeneralRepository {
   final http.Client _client;
   AuthenticationRepository? _authRepository;
 
+  // Stream controller for session expiration
+  final StreamController<bool> _sessionExpiredController =
+      StreamController<bool>.broadcast();
+  Stream<bool> get sessionExpired => _sessionExpiredController.stream;
+
   AuthenticationRepository get authenticationRepository {
     if (_authRepository == null) {
       throw StateError(
@@ -110,7 +115,8 @@ class GeneralRepository {
     try {
       rawResponse = await requestFunction().timeout(finalTimeout);
 
-      if (rawResponse.statusCode == 440) {
+      if (rawResponse.statusCode == 401) {
+        _sessionExpiredController.add(true);
         authenticationRepository.logout();
       }
 
@@ -121,7 +127,7 @@ class GeneralRepository {
           header?.update("Authorization", (_) => "Bearer $newToken");
           rawResponse = await requestFunction().timeout(finalTimeout);
         } else {
-          throw Exception("Failed to refresh token. Please login again.");
+          throw Exception("Please login again.");
         }
       }
 
@@ -410,7 +416,11 @@ class GeneralRepository {
       case 405:
       case 409:
       case 440:
-        throw json.decode(response.body)["message"].toString();
+        final responseBody = json.decode(response.body);
+        final message = responseBody["message"] ??
+            responseBody["error"] ??
+            "An error occurred";
+        throw message.toString();
       case 422:
         throw json.decode(response.body.toString());
       case 500:
@@ -419,5 +429,9 @@ class GeneralRepository {
           'Something went wrong, please try again later.\n\nStatus Code : ${response.statusCode}',
         );
     }
+  }
+
+  void dispose() {
+    _sessionExpiredController.close();
   }
 }
