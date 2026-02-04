@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:general_repository/general_repository.dart';
 
 import 'core/app/view/app.dart';
+import 'core/dependency_injection/di_container.dart';
 import 'core/utils/constants/constants.dart';
 
 
@@ -22,6 +23,7 @@ Future<void> main() async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   await CacheClient.initializeCache();
+  await initializeDI();
 
   PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 500;
 

@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:general_repository/general_repository.dart';
 
-
 import '../../../features/auth/cubit/auth_cubit.dart';
-import '../../../features/auth/view/view.dart';
-import '../../custom_widgets/custom_widgets.dart';
+import '../../../features/core/cart/cubit/cart_cubit.dart';
+import '../../../features/core/cart/view/view.dart';
 import '../../custom_widgets/generic_widgets/connectivity_overlay.dart';
-
-
+import '../../dependency_injection/di_container.dart';
 import '../../utils/utils.dart';
 import '../app.dart';
 
@@ -42,8 +40,7 @@ class App extends StatelessWidget {
           BlocProvider(
             create: (context) => AuthCubit(authenticationRepository),
           ),
-
-       
+          BlocProvider(create: (context) => sl<CartCubit>()),
         ],
         child: const AppView(),
       ),
@@ -85,9 +82,9 @@ class _AppViewState extends State<AppView> {
   //     barrierDismissible: false,
   //     builder: (dialogContext) => SessionExpiredDialog(
   //       onLoginTap: () {
-       
+
   //         Navigator.of(dialogContext).pop();
-         
+
   //         navigatorKey.currentState?.pushAndRemoveUntil(
   //           MaterialPageRoute(
   //             builder: (context) => const AuthPage(),
@@ -125,6 +122,6 @@ class _AppViewState extends State<AppView> {
   }
 
   Widget _buildPages(BuildContext context) {
-    return const Placeholder();
+    return CartListingView();
   }
 }
