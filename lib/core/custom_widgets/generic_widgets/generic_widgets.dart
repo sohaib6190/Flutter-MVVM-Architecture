@@ -24,4 +24,4 @@ part 'custom_global_table.dart';
 part 'custom_horizontal_stepper_widget.dart';
 part 'custom_select_chip_widget.dart';
 part 'tab_bar_widget.dart';
-
+part 'session_expired_dialogue.dart';

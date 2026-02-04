@@ -6,9 +6,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:general_repository/general_repository.dart';
 
 import '../../../features/auth/cubit/auth_cubit.dart';
+import '../../../features/auth/view/view.dart';
 import '../../../features/core/cart/cubit/cart_cubit.dart';
 import '../../../features/core/cart/view/view.dart';
 import '../../custom_widgets/generic_widgets/connectivity_overlay.dart';
+import '../../custom_widgets/generic_widgets/generic_widgets.dart';
 import '../../dependency_injection/di_container.dart';
 import '../../utils/utils.dart';
 import '../app.dart';
@@ -61,40 +63,36 @@ class _AppViewState extends State<AppView> {
   @override
   void initState() {
     super.initState();
-    // _listenToSessionExpired();
+    _listenToSessionExpired();
   }
 
-  // void _listenToSessionExpired() {
-  //   _sessionExpiredSubscription = context
-  //       .read<GeneralRepository>()
-  //       .sessionExpired
-  //       .listen((expired) {
-  //         if (expired && mounted) {
-  //           _showSessionExpiredDialog();
-  //         }
-  //       });
-  // }
+  void _listenToSessionExpired() {
+    _sessionExpiredSubscription = context
+        .read<GeneralRepository>()
+        .sessionExpired
+        .listen((expired) {
+          if (expired && mounted) {
+            _showSessionExpiredDialog();
+          }
+        });
+  }
 
-  // void _showSessionExpiredDialog() {
+  void _showSessionExpiredDialog() {
+    showDialog(
+      context: navigatorKey.currentContext!,
+      barrierDismissible: false,
+      builder: (dialogContext) => SessionExpiredDialog(
+        onLoginTap: () {
+          Navigator.of(dialogContext).pop();
 
-  //   showDialog(
-  //     context: navigatorKey.currentContext!,
-  //     barrierDismissible: false,
-  //     builder: (dialogContext) => SessionExpiredDialog(
-  //       onLoginTap: () {
-
-  //         Navigator.of(dialogContext).pop();
-
-  //         navigatorKey.currentState?.pushAndRemoveUntil(
-  //           MaterialPageRoute(
-  //             builder: (context) => const AuthPage(),
-  //           ),
-  //           (route) => false,
-  //         );
-  //       },
-  //     ),
-  //   );
-  // }
+          navigatorKey.currentState?.pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const AuthPage()),
+            (route) => false,
+          );
+        },
+      ),
+    );
+  }
 
   @override
   void dispose() {
