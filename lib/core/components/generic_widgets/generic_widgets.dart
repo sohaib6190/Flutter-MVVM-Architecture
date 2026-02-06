@@ -10,7 +10,7 @@ import 'package:video_player/video_player.dart';
 
 
 import '../../utils/utils.dart';
-import '../custom_widgets.dart';
+import '../components.dart';
 
 part 'api_state_widget.dart';
 part 'joystick_widget.dart';

@@ -7,11 +7,11 @@ import 'package:general_repository/general_repository.dart';
 
 import '../../../features/auth/cubit/auth_cubit.dart';
 import '../../../features/auth/view/view.dart';
-import '../../../features/core/cart/cubit/cart_cubit.dart';
+
 import '../../../features/core/cart/view/view.dart';
-import '../../custom_widgets/generic_widgets/connectivity_overlay.dart';
-import '../../custom_widgets/generic_widgets/generic_widgets.dart';
-import '../../dependency_injection/di_container.dart';
+import '../../components/generic_widgets/connectivity_overlay.dart';
+import '../../components/generic_widgets/generic_widgets.dart';
+
 import '../../utils/utils.dart';
 import '../app.dart';
 
@@ -42,7 +42,7 @@ class App extends StatelessWidget {
           BlocProvider(
             create: (context) => AuthCubit(authenticationRepository),
           ),
-          BlocProvider(create: (context) => sl<CartCubit>()),
+         
         ],
         child: const AppView(),
       ),

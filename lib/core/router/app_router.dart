@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/auth/auth.dart';
 import '../../features/root/root.dart';
-import '../custom_widgets/generic_widgets/connectivity_overlay.dart';
+import '../components/generic_widgets/connectivity_overlay.dart';
 import '../observers/navigator_observer.dart';
 import 'app_routes.dart';
 

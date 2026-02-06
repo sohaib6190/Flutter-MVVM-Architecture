@@ -6,24 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:general_repository/general_repository.dart';
 
 import 'core/app/view/app.dart';
-import 'core/dependency_injection/di_container.dart';
+
 import 'core/utils/constants/constants.dart';
 
-
-
 @pragma('vm:entry-point')
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
- 
-}
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {}
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   await CacheClient.initializeCache();
-  await initializeDI();
 
   PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 500;
 
@@ -34,8 +28,10 @@ Future<void> main() async {
   await authenticationRepository.user.first;
   generalRepository.initialize(authenticationRepository);
 
-  runApp(App(
-    authenticationRepository: authenticationRepository,
-    generalRepository: generalRepository,
-  ));
+  runApp(
+    App(
+      authenticationRepository: authenticationRepository,
+      generalRepository: generalRepository,
+    ),
+  );
 }
