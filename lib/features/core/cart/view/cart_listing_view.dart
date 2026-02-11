@@ -35,7 +35,10 @@ class _CartListingPageState extends State<CartListingPage> {
         child: Column(children: [
           GestureDetector(
             onTap: () {
-              context.pushPage(const CartPostView());
+              context.pushNamed(AppRoutes.addCart,extra: CartAddParams(
+                userId: 1,
+                products: [ProductParams(id: 1), ProductParams(id: 2)],
+              ));
             },
             child: Text("Post Cart")),
           

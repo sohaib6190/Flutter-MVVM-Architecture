@@ -1,22 +1,27 @@
 part of 'view.dart';
 
 class CartPostView extends StatelessWidget {
-  const CartPostView({super.key});
+  const CartPostView({super.key, required this.cartAddParams});
+  final CartAddParams cartAddParams;
 
   @override
   Widget build(BuildContext context) {
     return  BlocProvider(
       create: (context) => sl.get<CartCubit>(),
-      child: CartPostPage()
+      child: CartPostPage(
+        cartAddParams: cartAddParams,
+      )
     );
   }
 }
 
 class CartPostPage extends StatelessWidget {
-  const CartPostPage({super.key});
+  const CartPostPage({super.key, required this.cartAddParams});
+  final CartAddParams cartAddParams;
 
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
       appBar: AppBar(title: const Text("Cart Post")),
       body: Padding(

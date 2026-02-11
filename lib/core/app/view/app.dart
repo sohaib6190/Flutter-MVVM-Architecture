@@ -7,11 +7,9 @@ import 'package:general_repository/general_repository.dart';
 
 import '../../../features/auth/cubit/auth_cubit.dart';
 import '../../../features/auth/view/view.dart';
-
-import '../../../features/core/cart/view/view.dart';
-import '../../components/generic_widgets/connectivity_overlay.dart';
 import '../../components/generic_widgets/generic_widgets.dart';
 
+import '../../router/app_router.dart';
 import '../../utils/utils.dart';
 import '../app.dart';
 
@@ -102,10 +100,10 @@ class _AppViewState extends State<AppView> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: "Dummy App",
-      navigatorKey: navigatorKey,
+      routerConfig: appRouter,
       theme: AppTheme().lightThemeData,
       locale: context.locale,
 
@@ -113,13 +111,9 @@ class _AppViewState extends State<AppView> {
         data: MediaQuery.of(
           context,
         ).copyWith(textScaler: const TextScaler.linear(1.0), boldText: false),
-        child: ConnectivityOverlay(child: child!),
+        child: child!
       ),
-      home: _buildPages(context),
+      
     );
-  }
-
-  Widget _buildPages(BuildContext context) {
-    return CartListingView();
   }
 }

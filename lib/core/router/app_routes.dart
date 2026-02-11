@@ -9,4 +9,6 @@ class AppRoutes {
 
   // ============================ Core ==============================
   static const String home = 'home';
+  static const String cartListing = 'cart_listing';
+  static const String addCart = 'add_cart';
 }

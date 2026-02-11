@@ -10,28 +10,20 @@ GlobalKey mapsProjectFeatureKey = GlobalKey();
 class RootPage extends StatelessWidget {
   const RootPage({super.key});
 
- @override
+  @override
   Widget build(BuildContext context) {
-      return MultiBlocProvider(
-      providers: [
-     
-        
-  
-      ],
-      child: _HomeView(),
-    );
+    return MultiBlocProvider(providers: [], child: _HomeView());
   }
 }
-
-
 
 class _HomeView extends StatelessWidget {
   const _HomeView();
 
   @override
   Widget build(BuildContext context) {
-    int navBarIndex =
-        context.select((RootCubit cubit) => cubit.state.navBarItem.index);
+    int navBarIndex = context.select(
+      (RootCubit cubit) => cubit.state.navBarItem.index,
+    );
 
     return PopScope(
       canPop: false,
@@ -67,9 +59,7 @@ class _HomeViewPages extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.navBarItem != current.navBarItem,
       builder: (context, state) {
-        return IndexedStack(
-          index: _getPageIndex(state),
-          children: const [
+        return IndexedStack(index: _getPageIndex(state), children: const [
        
           ],
         );
