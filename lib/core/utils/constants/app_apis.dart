@@ -10,7 +10,7 @@ class AppApis {
   }
 
   /// Local
-  static const String baseUrl = "";
+  static const String baseUrl = "https://fakestoreapi.com";
 
   /// Staging
   // static const String baseUrl = "";
@@ -18,7 +18,7 @@ class AppApis {
   /// Production
   // static const String baseUrl = "";
 
-  static const String baseApiUrl = "$baseUrl/api/";
+  static const String baseApiUrl = "$baseUrl/";
   static const String login = 'login';
   static const String register = 'register';
   static const String updateProfile = 'profile';
@@ -28,6 +28,8 @@ class AppApis {
   static const String resetPassword = 'reset-password';
   static const String logout = 'logout';
   static const String deleteAccount = 'user/delete-my-account';
+   static const String postsListing = 'carts';
+   static const String addCart = 'carts';
 
 
   initBaseUrlAndAuthEndpoints() {

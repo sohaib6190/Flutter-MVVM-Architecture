@@ -1,12 +1,10 @@
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:cache/cache.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:general_repository/general_repository.dart';
 
 import 'core/app/view/app.dart';
-
+import 'core/dependency_injection/di_barrel.dart';
 import 'core/utils/constants/constants.dart';
 
 @pragma('vm:entry-point')
@@ -17,21 +15,21 @@ Future<void> main() async {
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  await CacheClient.initializeCache();
+
+  await initializeDI();
 
   PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 500;
 
   AppApis().initBaseUrlAndAuthEndpoints();
 
-  final generalRepository = GeneralRepository();
-  final authenticationRepository = AuthenticationRepository(generalRepository);
+  // Get repositories from service locator
+  final authenticationRepository = sl<AuthenticationRepository>();
   await authenticationRepository.user.first;
-  generalRepository.initialize(authenticationRepository);
 
   runApp(
     App(
       authenticationRepository: authenticationRepository,
-      generalRepository: generalRepository,
+      generalRepository: sl<GeneralRepository>(),
     ),
   );
 }

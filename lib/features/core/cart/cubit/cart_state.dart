@@ -1,16 +1,17 @@
 part of 'cart_cubit.dart';
 
 class CartState extends Equatable {
-  const CartState({this.cancelBookingApiState = const GeneralApiState<void>()});
+  const CartState({this.getCartListingApiState = const GeneralApiState<List<CartListingModel>>(),this.postCartApiState = const GeneralApiState<void>()});
 
-  final GeneralApiState<void> cancelBookingApiState;
+  final GeneralApiState<List<CartListingModel>> getCartListingApiState;
+  final GeneralApiState<void> postCartApiState;
 
-  CartState copyWith({GeneralApiState<void>? cancelBookingApiState}) =>
+  CartState copyWith({GeneralApiState<List<CartListingModel>>? getCartListingApiState, GeneralApiState<void>? postCartApiState}) =>
       CartState(
-        cancelBookingApiState:
-            cancelBookingApiState ?? this.cancelBookingApiState,
+        getCartListingApiState: getCartListingApiState ?? this.getCartListingApiState,
+        postCartApiState: postCartApiState ?? this.postCartApiState,
       );
 
   @override
-  List<Object> get props => [cancelBookingApiState];
+  List<Object> get props => [getCartListingApiState, postCartApiState];
 }

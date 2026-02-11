@@ -1,5 +1,14 @@
 part of 'generics.dart';
 
+extension PagePaddingExtension on BuildContext {
+  
+  EdgeInsets pagePadding({double horizontal = 20, double vertical = 20}) {
+    return EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
+  }
+}
+
+
+
 extension NavigationExtension on BuildContext {
   void pushPage(Widget page, {Function()? then}) {
     Navigator.of(this)
