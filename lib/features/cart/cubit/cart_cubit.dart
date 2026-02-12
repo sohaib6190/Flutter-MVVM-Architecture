@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/features/core/cart/data/model/request/cart_add_params.dart';
-import 'package:flutter_clean_architecture/features/core/cart/data/model/response/response.dart';
-import 'package:flutter_clean_architecture/features/core/cart/data/repository/repository.dart';
+import 'package:flutter_clean_architecture/features/cart/data/model/request/cart_add_params.dart';
+import 'package:flutter_clean_architecture/features/cart/data/model/response/response.dart';
+import 'package:flutter_clean_architecture/features/cart/data/repository/repository.dart';
 
-import '../../../../core/utils/generics/generics.dart';
+import '../../../core/utils/generics/generics.dart';
 
 part 'cart_state.dart';
 

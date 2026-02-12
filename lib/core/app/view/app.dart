@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:general_repository/general_repository.dart';
 
 import '../../../features/auth/cubit/auth_cubit.dart';
@@ -40,7 +41,6 @@ class App extends StatelessWidget {
           BlocProvider(
             create: (context) => AuthCubit(authenticationRepository),
           ),
-         
         ],
         child: const AppView(),
       ),
@@ -107,13 +107,19 @@ class _AppViewState extends State<AppView> {
       theme: AppTheme().lightThemeData,
       locale: context.locale,
 
-      builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(
-          context,
-        ).copyWith(textScaler: const TextScaler.linear(1.0), boldText: false),
-        child: child!
-      ),
-      
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(
+            context,
+          ).copyWith(textScaler: TextScaler.linear(1.0)),
+          child: ScreenUtilInit(
+            designSize: const Size(428, 926),
+            splitScreenMode: true,
+            useInheritedMediaQuery: true,
+            child: child,
+          ),
+        );
+      },
     );
   }
 }

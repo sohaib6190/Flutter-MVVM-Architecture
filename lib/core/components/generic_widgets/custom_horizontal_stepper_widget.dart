@@ -147,7 +147,7 @@ class _CustomHorizontalStepperState extends State<CustomHorizontalStepper> {
                   : _buildStepCircle(index, isActive, isDone, canNavigate);
             }),
           ),
-          14.h,
+          14.verticalSpace,
 
           if (widget.isTiteVisible) ...[
             Text(
@@ -160,7 +160,7 @@ class _CustomHorizontalStepperState extends State<CustomHorizontalStepper> {
             ),
           ],
           Expanded(child: widget.steps[selectedStep].child),
-          120.h
+          120.verticalSpace
         ],
       ),
     );

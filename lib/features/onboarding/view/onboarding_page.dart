@@ -17,7 +17,7 @@ class OnboardingPage extends StatelessWidget {
             height: context.mHeight * 0.3,
           ),
 
-          44.h,
+          44.verticalSpace,
         ],
       ),
     );

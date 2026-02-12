@@ -5,7 +5,7 @@ import 'package:general_repository/general_repository.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 
 // Feature imports
-import '../../features/core/cart/data/repository/repository.dart';
-import '../../features/core/cart/cubit/cart_cubit.dart';
+import '../../features/cart/data/repository/repository.dart';
+import '../../features/cart/cubit/cart_cubit.dart';
 
 part 'service_locator.dart';

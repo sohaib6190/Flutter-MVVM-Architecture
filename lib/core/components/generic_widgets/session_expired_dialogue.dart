@@ -17,7 +17,7 @@ class SessionExpiredDialog extends StatelessWidget {
       title: Column(
         children: [
           Icon(Icons.info_outline, color: AppColorTheme().primary, size: 48),
-          12.h,
+          12.verticalSpace,
           Text(
             "Session Expired",
             style: context.headingText.copyWith(

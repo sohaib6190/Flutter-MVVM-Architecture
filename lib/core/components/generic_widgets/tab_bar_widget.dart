@@ -10,7 +10,7 @@ class GenericTabBarScreen extends StatelessWidget {
       length: tabs.length,
       child:Column(
           children: [
-            12.h,
+            12.verticalSpace,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(

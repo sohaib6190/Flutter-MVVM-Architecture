@@ -135,10 +135,10 @@ extension StringExtension on String {
     }
   }
 }
-extension SizedBoxExtension on num {
-  SizedBox get h => SizedBox(height: toDouble());
-  SizedBox get w => SizedBox(width: toDouble());
-}
+// extension SizedBoxExtension on num {
+//   SizedBox get verticalSpace => SizedBox(height: toDouble());
+//   SizedBox get horizontalSpace => SizedBox(width: toDouble());
+// }
 
 extension SnackbarExtension on BuildContext {
   void showSnackbar(String message,

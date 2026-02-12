@@ -1,8 +1,8 @@
-import 'package:flutter_clean_architecture/features/core/cart/view/view.dart';
+import 'package:flutter_clean_architecture/features/cart/view/view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/auth.dart';
-import '../../features/core/cart/data/model/request/cart_add_params.dart';
+import '../../features/cart/data/model/request/cart_add_params.dart';
 import '../../features/root/root.dart';
 import '../components/generic_widgets/connectivity_overlay.dart';
 import '../observers/navigator_observer.dart';

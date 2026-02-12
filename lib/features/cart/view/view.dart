@@ -5,8 +5,8 @@ import 'package:flutter_clean_architecture/core/utils/utils.dart';
 import 'package:go_router/go_router.dart';
 
 
-import '../../../../core/dependency_injection/di_barrel.dart';
-import '../../../../core/router/app_routes.dart';
+import '../../../core/dependency_injection/di_barrel.dart';
+import '../../../core/router/app_routes.dart';
 import '../cubit/cart_cubit.dart';
 import '../data/model/request/cart_add_params.dart';
 import '../data/model/response/response.dart';
